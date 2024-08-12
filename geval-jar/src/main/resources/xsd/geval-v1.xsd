@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:geval="http://xmlns.rotterdam.nl/geval/v1"
+           targetNamespace="http://xmlns.rotterdam.nl/geval/v1"
+           elementFormDefault="qualified" >
+
+<!-- 
+Schemadefinitie van generieke validatie checks.
+
+versiehistorie:
+===============
+versie 1.0, 31-08-2022    creatie
+-->
+
+    <xs:complexType name="ValidatieCheckType">
+        <xs:annotation>
+            <xs:documentation>Beschrijft de gevraagde validatiecheck.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Type" type="geval:GegevensType" />
+            <xs:element name="Gegeven" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ValidatieCheckResultType">
+        <xs:annotation>
+            <xs:documentation>Beschrijft het resultaat van de gevraagde validatiecheck.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Type" type="geval:GegevensType" />
+            <xs:element name="Gegeven" type="xs:string"/>
+            <xs:element name="Validatie" type="geval:ResultaatType" />
+            <xs:element name="Detail" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="Toelichting" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="GegevensType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="e-mail"/>
+            <xs:enumeration value="bsn"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ResultaatType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="goed"/>
+            <xs:enumeration value="fout"/>
+            <xs:enumeration value="ambivalent"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

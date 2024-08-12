@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <GevalAntwoord
+                xmlns="http://xmlns.rotterdam.nl/geval/operations/v1"
+                xmlns:ns2="http://xmlns.rotterdam.nl/geval/v1" xmlns:ns3="http://rotterdam.nl/schemas/identify/2.0/">
+            <CheckResult>
+                <ns2:Type>bsn</ns2:Type>
+                <ns2:Gegeven>123456782</ns2:Gegeven>
+                <ns2:Validatie>goed</ns2:Validatie>
+            </CheckResult>
+            <CheckResult>
+                <ns2:Type>e-mail</ns2:Type>
+                <ns2:Gegeven>w.hu1@rotterdam.nl</ns2:Gegeven>
+                <ns2:Validatie>goed</ns2:Validatie>
+                <ns2:Detail>DOMEIN_MET_EMAIL</ns2:Detail>
+                <ns2:Detail>TIJDGEBREK</ns2:Detail>
+            </CheckResult>
+        </GevalAntwoord>
+    </soap:Body>
+</soap:Envelope>

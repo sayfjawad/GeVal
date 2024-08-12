@@ -1,0 +1,142 @@
+openapi: 3.0.2
+info:
+  title: Generieke validatie API
+  description: 'Deze specificatie beschrijft de API voor het uitvoeren van een generieke validatie'
+  contact:
+    url: https://www.rotterdam.nl
+    email: noreply@rotterdam.nl
+  version: 1.0.0
+paths:
+  /:
+    post:
+      tags:
+        - geval
+      operationId: uitvoerenGeval
+      summary: Uitvoeren van een generieke validatie
+      description: "Uitvoeren van een generieke validatie"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GevalVraag'
+      responses:
+        '200':
+          description: OK, de validatie is uitgevoerd
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GevalAntwoord'
+        '400':
+          description: 'Bad request'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '503':
+          description: 'Service not available'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+components:
+  schemas:
+    ValidatieType:
+      description: 'Type van validatie'
+      type: string
+      enum:
+        - e-mail
+        - bsn
+    Validatie:
+      description: 'Het resultaat van de validatie'
+      type: string
+      enum:
+        - goed
+        - fout
+        - ambivalent
+    GevalVraag:
+      type: object
+      required:
+        - procescode
+        - checks
+      properties:
+        procescode:
+          type: string
+        checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Check'
+    GevalAntwoord:
+      type: object
+      required:
+        - checks
+      properties:
+        checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/CheckResultaat'
+    Check:
+      type: object
+      required:
+        - type
+        - gegeven
+      properties:
+        type:
+          $ref: '#/components/schemas/ValidatieType'
+        gegeven:
+          description: 'Te valideren gegeven'
+          type: string
+    CheckResultaat:
+      type: object
+      required:
+        - type
+        - gegeven
+        - validatie
+        - details
+      properties:
+        type:
+          $ref: '#/components/schemas/ValidatieType'
+        gegeven:
+          description: 'Te valideren gegeven'
+          type: string
+        validatie:
+          description: 'Het resultaat van de validatie'
+          $ref: '#/components/schemas/Validatie'
+        details:
+          description: 'Gecodeerde details van het resultaat van de validatie'
+          type: array
+          items:
+            type: string
+        toelichting:
+          description: 'Toelichting bij het resultaat van de validatie'
+          type: string
+    Fout:
+      description: 'Dit schema beschrijft het formaat van het synchrone response van functies bij fouten.'
+      required:
+        - code
+        - detail
+      type: object
+      properties:
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          example: 'INVALIDE_INPUT'
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout  (wordt nog niet gevuld)
+          type: string
+          example: ''
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+          example: 400
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout
+          type: string
+          example: 'XML data fout'
+          minLength: 1

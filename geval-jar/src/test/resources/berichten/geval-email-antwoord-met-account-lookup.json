@@ -1,0 +1,12 @@
+{
+  "checks": [
+    {
+      "type": "e-mail" ,
+      "gegeven": "g.e.bruiker@rotterdam.nl" ,
+      "validatie": "fout" ,
+      "details": [
+        "ONBEKEND_ACCOUNT"
+      ]
+    }
+  ]
+}

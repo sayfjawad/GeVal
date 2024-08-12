@@ -1,0 +1,5 @@
+{
+  "code": "INVALIDE_INPUT_FOUT" ,
+  "status": 400 ,
+  "detail": "Unrecognized field \"data\" (class nl.rotterdam.service.geval.api.v1.json.Check), not marked as ignorable (2 known properties: \"type\", \"gegeven\"])\n at [Source: (byte[])\"{\n  \"procescode\" : \"taakapplicatie\",\n  \"checks\" : [\n    {\n      \"type\" : \"e-mail\",\n      \"data\" : \"g.e.bruiker@rotterdam.nl\"\n    }\n  ]\n}\"; line: 6, column: 17] (through reference chain: nl.rotterdam.service.geval.api.v1.json.GevalVraag[\"checks\"]->java.util.ArrayList[0]->nl.rotterdam.service.geval.api.v1.json.Check[\"data\"])"
+}

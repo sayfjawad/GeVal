@@ -1,0 +1,17 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Body>
+        <v1:GevalVraag xmlns:v1="http://xmlns.rotterdam.nl/geval/operations/v1" xmlns:v11="http://xmlns.rotterdam.nl/geval/v1">
+        <v1:Procescode>taakapplicatie</v1:Procescode>
+        <!--1 or more repetitions:-->
+        <v1:Check>
+            <v11:Type>bsn</v11:Type>
+            <v11:Gegeven>123456782</v11:Gegeven>
+        </v1:Check>
+        <v1:Check>
+            <v11:Type>e-mail</v11:Type>
+            <v11:Gegeven>w.hu1@rotterdam.nl</v11:Gegeven>
+        </v1:Check>
+        </v1:GevalVraag>
+    </soap:Body>
+</soap:Envelope>

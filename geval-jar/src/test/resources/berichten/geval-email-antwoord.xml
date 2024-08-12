@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Body>
+        <ns2:GevalAntwoord
+                xmlns="http://xmlns.rotterdam.nl/geval/v1"
+                xmlns:ns2="http://xmlns.rotterdam.nl/geval/operations/v1" xmlns:ns3="http://rotterdam.nl/schemas/identify/2.0/">
+            <ns2:CheckResult>
+                <Type>e-mail</Type>
+                <Gegeven>g.e.bruiker@rotterdam.nl</Gegeven>
+                <Validatie>goed</Validatie>
+                <Detail>DOMEIN_MET_EMAIL</Detail>
+            </ns2:CheckResult>
+        </ns2:GevalAntwoord>
+    </soap:Body>
+</soap:Envelope>

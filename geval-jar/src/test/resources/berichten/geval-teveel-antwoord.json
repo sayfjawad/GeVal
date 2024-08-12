@@ -1,0 +1,5 @@
+{
+  "code": "INVALIDE_INPUT_FOUT" ,
+  "status": 400 ,
+  "detail": "Aantal checks (12) mag niet hoger zijn dan 10"
+}

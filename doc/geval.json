@@ -1,0 +1,13 @@
+{
+  "procescode" : "taakapplicatie",
+  "checks" : [
+    {
+      "type" : "e-mail",
+      "gegeven" : "gebruiker-at-rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "gebruiker@rotterdam.nl"
+    }
+  ]
+}

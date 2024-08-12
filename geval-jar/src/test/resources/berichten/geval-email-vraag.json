@@ -1,0 +1,9 @@
+{
+  "procescode" : "taakapplicatie",
+  "checks" : [
+    {
+      "type" : "e-mail",
+      "gegeven" : "g.e.bruiker@rotterdam.nl"
+    }
+  ]
+}

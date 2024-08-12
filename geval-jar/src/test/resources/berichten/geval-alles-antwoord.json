@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "type": "e-mail" ,
+      "gegeven": "gebruiker-at-rotterdam.nl" ,
+      "validatie": "fout" ,
+      "details": [
+        "INVALIDE_SYNTAX"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "g..bruiker@rotterdam.nl" ,
+      "validatie": "fout" ,
+      "details": [
+        "INVALIDE_SYNTAX_GEBRUIKER"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "gebruiker@rotterdam" ,
+      "validatie": "fout" ,
+      "details": [
+        "INVALIDE_SYNTAX_DOMEIN"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "gebruiker@rot456terdam.uk" ,
+      "validatie": "fout" ,
+      "details": [
+        "DOMEIN_BESTAAT_NIET"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "gebruiker@rotterdam.uk" ,
+      "validatie": "fout" ,
+      "details": [
+        "DOMEIN_ZONDER_EMAIL"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "gebruiker@gmail.com" ,
+      "validatie": "goed" ,
+      "details": [
+        "DOMEIN_MET_EMAIL"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "g.e.bruiker@rotterdam.nl" ,
+      "validatie": "fout" ,
+      "details": [
+        "ONBEKEND_ACCOUNT"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "w.hu1@rotterdam.nl" ,
+      "validatie": "goed" ,
+      "details": [
+        "GELDIG_ADRES"
+      ]
+    }
+  ]
+}

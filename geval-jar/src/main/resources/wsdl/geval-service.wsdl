@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:tns="http://xmlns.rotterdam.nl/geval/v1"
+    xmlns:op="http://xmlns.rotterdam.nl/geval/operations/v1"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    name="GevalService"
+    targetNamespace="http://xmlns.rotterdam.nl/geval/v1">
+
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://xmlns.rotterdam.nl/geval/operations/v1"
+                schemaLocation="../xsd/geval-operations-v1.xsd" />
+        </xsd:schema>
+    </types>
+
+    <message name="gevalVraagBericht">
+        <part element="op:GevalVraag" name="payload">
+        </part>
+    </message>
+    <message name="gevalAntwoordBericht">
+        <part element="op:GevalAntwoord" name="payload">
+        </part>
+    </message>
+
+    <portType name="GevalServicePortType">
+        <operation name="geval">
+            <input message="tns:gevalVraagBericht"></input>
+            <output message="tns:gevalAntwoordBericht"></output>
+        </operation>
+    </portType>
+
+    <binding name="GevalServiceSOAP" type="tns:GevalServicePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="geval">
+            <soap:operation soapAction="geval" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+
+    <service name="GevalService">
+        <port binding="tns:GevalServiceSOAP" name="GevalServicePort">
+            <soap:address location="http://localhost:8888/service/geval" />
+        </port>
+    </service>
+</definitions>

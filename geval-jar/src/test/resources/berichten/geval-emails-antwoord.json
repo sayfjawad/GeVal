@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "type": "e-mail" ,
+      "gegeven": "g..bruiker@rotterdam.nl" ,
+      "validatie": "fout" ,
+      "details": [
+        "INVALIDE_SYNTAX_GEBRUIKER"
+      ]
+    } ,
+    {
+      "type": "e-mail" ,
+      "gegeven": "g.e.bruiker@rotterdam.nl" ,
+      "validatie": "goed" ,
+      "details": [
+        "DOMEIN_MET_EMAIL"
+      ]
+    }
+  ]
+}

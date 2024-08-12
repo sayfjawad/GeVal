@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:geval="http://xmlns.rotterdam.nl/geval/v1"
+    xmlns="http://xmlns.rotterdam.nl/geval/operations/v1"
+    targetNamespace="http://xmlns.rotterdam.nl/geval/operations/v1"
+    elementFormDefault="qualified">
+
+    <!--
+    Schemadefinitie van de operaties voor generieke validatie.
+
+    versiehistorie:
+    ===============
+    versie 1.0, 31-08-2022    creatie
+    -->
+
+    <xs:import namespace="http://xmlns.rotterdam.nl/geval/v1"
+        schemaLocation="geval-v1.xsd" />
+
+    <xs:element name="GevalVraag">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Procescode" type="xs:string"/>
+                <xs:element name="Check" type="geval:ValidatieCheckType" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GevalAntwoord">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CheckResult" type="geval:ValidatieCheckResultType" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

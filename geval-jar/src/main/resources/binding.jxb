@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xs:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+    jaxb:version="2.0">
+
+    <jaxb:bindings>
+        <jaxb:globalBindings generateElementProperty="false" />
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="./xsd/geval-operations-v1.xsd" node="/xs:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="nl.rotterdam.service.geval.api.v1.xml"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>

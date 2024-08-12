@@ -1,0 +1,53 @@
+{
+  "procescode" : "taakapplicatie",
+  "checks" : [
+    {
+      "type" : "e-mail",
+      "gegeven" : "g..bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g.e.bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g..bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g.e.bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g..bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g.e.bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g..bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g.e.bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g..bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g.e.bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g..bruiker@rotterdam.nl"
+    },
+    {
+      "type" : "e-mail",
+      "gegeven" : "g.e.bruiker@rotterdam.nl"
+    }
+  ]
+}
