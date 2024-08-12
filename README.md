@@ -12,6 +12,8 @@ Clients sturen een generiek gestructureerd vraagbericht naar de web service met 
 GeVal is initieel ontwikkeld door Gemeente Rotterdam. Zie voor verdere toelichting de “doc” directory. 
 Gemeente Rotterdam draagt geen enkele verantwoordelijkheid voor de werking van de code, onderhoudt de code niet (ook geen bug fixing). De code is gescreend om specifieke informatie over Rotterdam uit code of configuratie weg te halen zoals persoonlijke info van ontwikkelaars als naam en e-mail en ip adressen of dns namen van servers van Rotterdam zoals de Exchange server of DNS servers.
 
+Mocht je aanpassingen of aanvullingen maken op de code, dan stellen we het op prijs als je deze ook publiceert en documenteert
+
 ## Lokaal starten
 
 Onder Windows:
