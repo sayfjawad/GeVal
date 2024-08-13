@@ -34,3 +34,7 @@ http://localhost:8080/service/geval/wsdl  (SOAP web service)
 of
 
 http://localhost:8080/service/geval/yaml  (REST API web service)
+
+![afbeelding](https://github.com/user-attachments/assets/d812de90-4722-4084-b4a8-78260af74d0d)
+
+![afbeelding](https://github.com/user-attachments/assets/453e4b13-1a91-4659-9bbf-2f9358b445d8)
