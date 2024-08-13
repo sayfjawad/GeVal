@@ -1,5 +1,5 @@
-# GeVal 20240729
-
+# GeVal 
+2024-07-29
 Service voor het uitvoeren van Generieke Validaties via SOAP web service en via REST API web-service. 
 
 ## Werking
