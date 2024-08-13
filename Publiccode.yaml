@@ -1,10 +1,10 @@
 publiccodeYmlVersion: "0.2"
-# Software gemaakt in Gemeente Rotterdam
+# Software gemaakt door Gemeente Rotterdam
 name: GeVal
 
 url: "https://github.com/Municipality-of-Rotterdam/GeVal"
 landingURL: 
-softwareVersion: "0.01"    # Optional
+softwareVersion: "1.00"    # Optional
 releaseDate: "2024-07-29"
 platforms:
   - web
@@ -22,57 +22,61 @@ description:
   en:
     localisedName: Generieke Validaties   # Optional
     shortDescription: >
-          GeVal is een generieke service voor specifieke validaties. Momenteel biedt GeVal de validaties aan van emailadressen.
+        GeVal is een generieke service voor specifieke validaties van input en output. Het controleert bijvoorbeeld of een opgegeven emailadres daadwerkelijk bestaat.
           
     longDescription: >
-        Toeslag applicatie voor zorgtoeslag en kinderbijslag. Gemaakt als Afstudeeropdracht.
-	Een 'Flask' website waarop een gebruiker de zorgtoeslag en kinderbijslag kan berekenen. 
-	Onderliggend wordt gebruik gemaakt van 2 Common Ground componenten: Objects API en de Objectstype API
+        GeVal is een generieke service voor specifieke validaties van input en output. Momenteel biedt GeVal de validaties aan van emailadressen.
+	GeVal biedt cliëntsystemen twee koppelvlakken aan voor de uitvoering van validaties:
+
+	•	XML-gebaseerde SOAP web service
+	•	JSON-gebaseerde RESTful web service
 
     features:
-       - Just one feature
+       - Clients sturen een generiek gestructureerd vraagbericht naar de web service met daarin één of meer te valideren gegevens. 
+       - Per te valideren gegeven wordt aangegeven welk type validatie uitgevoerd dient te worden. 
+       - Indien de web service probleemloos de gevraagde validaties heeft kunnen verrichten, krijgen de clients een antwoordbericht retour met daarin per gevalideerd gegeven het resultaat van de validatie.
  nl:
-    localisedName: Toeslag-applicatie (afstudeeropdracht)
-    genericName: Toeslag-applicatie 
+    localisedName: GeVal (Generieke Validatie)
+    genericName: GeVal
     shortDescription: >-
-        Toeslag applicatie voor zorgtoeslag en kinderbijslag. Gemaakt als Afstudeeropdracht.
-	Een 'Flask' website waarop een gebruiker de zorgtoeslag en kinderbijslag kan berekenen. 
-	Onderliggend wordt gebruik gemaakt van 2 Common Ground componenten: Objects API en de Objectstype API
-      
-    features:
-      - Invulscherm 
-      - berekening toeslag
-      - Opslaan
+        GeVal is een generieke service voor specifieke validaties van input en output. Het controleert bijvoorbeeld of een opgegeven emailadres daadwerkelijk bestaat.
+	GeVal biedt cliëntsystemen twee koppelvlakken aan voor de uitvoering van validaties:
 
+	•	XML-gebaseerde SOAP web service
+	•	JSON-gebaseerde RESTful web service
+
+              
+    features:
+- Clients sturen een generiek gestructureerd vraagbericht naar de web service met daarin één of meer te valideren gegevens. 
+       - Per te valideren gegeven wordt aangegeven welk type validatie uitgevoerd dient te worden. 
+       - Indien de web service probleemloos de gevraagde validaties heeft kunnen verrichten, krijgen de clients een antwoordbericht retour met daarin per gevalideerd gegeven het resultaat van de validatie.
 legal:
-  license: unlicense
+  license: EUPL-1.2
 
 maintenance:
   type: "community"
 
   contacts:
-    - name: Stan-1037079
+    - name: Ruub van der Klip
 
 localisation:
   localisationReady: true
   availableLanguages:
     - NL
-# De Nederlandse uitbreiding op de Common Ground standaard
 nl:
   countryExtensionVersion: "1.0"
   commonground:
   - layerType: "Interactie" "Interface"
   - installationType: "ZIP"
-  - intendedOrganisations: "https://github.com/Rotterdam"
+  - intendedOrganisations: "https://github.com/Municipality-of-Rotterdam"
   gemma:
     bedrijfsfuncties:
-      - "Sociaal Domein"
-      - "Jeugdzorg"
+      - "BedrijfsvoeringDomein"
+      - "Automatisering"
     bedrijfsservices:
-      - "Beheren van zoorzieningenverstrekkingen"
+      - "Inputmanagement"
    
-    applicatiefunctie: "Jeugdzorg component"
+    applicatiefunctie: "Toepasbare regelscomponent"
 dependsOn:
   open:
-    - name: Flask
-    - name: Open Objecten 
+    - name:  
