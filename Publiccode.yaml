@@ -1,0 +1,78 @@
+publiccodeYmlVersion: "0.2"
+# Software gemaakt in Gemeente Rotterdam
+name: GeVal
+
+url: "https://github.com/Municipality-of-Rotterdam/GeVal"
+landingURL: 
+softwareVersion: "0.01"    # Optional
+releaseDate: "2024-07-29"
+platforms:
+  - web
+
+categories:
+  - Bedrijfsvoering domein
+usedBy:
+  - Gemeente Rotterdam
+
+developmentStatus: MVP
+
+softwareType: "standalone/web"
+
+description:
+  en:
+    localisedName: Generieke Validaties   # Optional
+    shortDescription: >
+          GeVal is een generieke service voor specifieke validaties. Momenteel biedt GeVal de validaties aan van emailadressen.
+          
+    longDescription: >
+        Toeslag applicatie voor zorgtoeslag en kinderbijslag. Gemaakt als Afstudeeropdracht.
+	Een 'Flask' website waarop een gebruiker de zorgtoeslag en kinderbijslag kan berekenen. 
+	Onderliggend wordt gebruik gemaakt van 2 Common Ground componenten: Objects API en de Objectstype API
+
+    features:
+       - Just one feature
+ nl:
+    localisedName: Toeslag-applicatie (afstudeeropdracht)
+    genericName: Toeslag-applicatie 
+    shortDescription: >-
+        Toeslag applicatie voor zorgtoeslag en kinderbijslag. Gemaakt als Afstudeeropdracht.
+	Een 'Flask' website waarop een gebruiker de zorgtoeslag en kinderbijslag kan berekenen. 
+	Onderliggend wordt gebruik gemaakt van 2 Common Ground componenten: Objects API en de Objectstype API
+      
+    features:
+      - Invulscherm 
+      - berekening toeslag
+      - Opslaan
+
+legal:
+  license: unlicense
+
+maintenance:
+  type: "community"
+
+  contacts:
+    - name: Stan-1037079
+
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - NL
+# De Nederlandse uitbreiding op de Common Ground standaard
+nl:
+  countryExtensionVersion: "1.0"
+  commonground:
+  - layerType: "Interactie" "Interface"
+  - installationType: "ZIP"
+  - intendedOrganisations: "https://github.com/Rotterdam"
+  gemma:
+    bedrijfsfuncties:
+      - "Sociaal Domein"
+      - "Jeugdzorg"
+    bedrijfsservices:
+      - "Beheren van zoorzieningenverstrekkingen"
+   
+    applicatiefunctie: "Jeugdzorg component"
+dependsOn:
+  open:
+    - name: Flask
+    - name: Open Objecten 
