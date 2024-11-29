@@ -119,6 +119,7 @@ public class EmailValidator implements Validator {
         return ValidatieType.E_MAIL;
     }
 
+    // Te hoge complexiteit betekent lastig analyseren, testen en aanpassen, dit moet in business rules veranderd worden
     @Override
     public CheckResultaat valideer(String emailAdres, int tijdsbestek) {
         final long start = System.currentTimeMillis();

@@ -72,6 +72,60 @@ public class SoapUtil {
     }
 
     /**
+
+
+     public static Document removeSoapEnvelope(Document soapDocument) {
+     try {
+     Node soapBody = getBodyNode(soapDocument, getXpath());
+
+     if (soapBody == null) {
+     return soapDocument; // No SOAP body found, return original document
+     }
+
+     Node firstElementNode = findFirstElementNode(soapBody.getChildNodes());
+     if (firstElementNode == null) {
+     return soapDocument; // No element nodes in SOAP body, return original document
+     }
+
+     Document nonSoapDocument = newDocument();
+     Node importNode = nonSoapDocument.importNode(firstElementNode, true);
+     nonSoapDocument.appendChild(importNode);
+
+     return nonSoapDocument;
+     } catch (XPathExpressionException e) {
+     LOG.error("Failed to extract SOAP body from message", e);
+     return soapDocument; // Return original document on error
+     }
+     }
+
+     private static Node getBodyNode(final Document soapDocument, final XPath xpath) throws XPathExpressionException {
+
+     return (Node) xpath.evaluate(
+     "//" + DefaultNamespaces.SOAPENVELOPE11.getPrefix() + ":Body | "
+     + "//" + DefaultNamespaces.SOAPENVELOPE12.getPrefix() + ":Body",
+     soapDocument, XPathConstants.NODE);
+     }
+
+     private static Node findFirstElementNode(NodeList nodes) {
+     for (int i = 0; i < nodes.getLength(); i++) {
+     Node node = nodes.item(i);
+     if (node.getNodeType() == Node.ELEMENT_NODE) {
+     return node;
+     }
+     }
+     return null;
+     }
+
+
+
+
+     */
+
+
+
+
+
+    /**
      *
      * @param doc
      *            the document to wrap in a SOAP envelope

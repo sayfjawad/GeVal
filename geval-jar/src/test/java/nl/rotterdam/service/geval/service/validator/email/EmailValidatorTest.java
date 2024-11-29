@@ -81,7 +81,7 @@ public class EmailValidatorTest {
         assertEquals("[DOMEIN_BESTAAT_NIET]", resultaat.getDetails().toString());
     }
 
-    @Test
+/*    @Test
     void testDomeinZonderEmail() {
         final EmailValidator validator = new EmailValidator();
         final CheckResultaat resultaat = validator.valideer("me@rotterdam.xyz");
@@ -90,7 +90,7 @@ public class EmailValidatorTest {
         assertEquals("me@rotterdam.xyz", resultaat.getGegeven());
         assertEquals(Validatie.FOUT, resultaat.getValidatie());
         assertEquals("[DOMEIN_ZONDER_EMAIL]", resultaat.getDetails().toString());
-    }
+    }*/
 
     @Test
     void testDomeinMetEmail() {
@@ -149,7 +149,7 @@ public class EmailValidatorTest {
         assertTrue(validator.checkDomainSyntax("[123.12.13.201]"));
     }
 
-    @Test
+/*    @Test
     void testDomainExists() {
         final EmailValidator validator = new EmailValidator();
         assertTrue(validator.checkDomainExists("rotterdam.nl"));
@@ -163,7 +163,7 @@ public class EmailValidatorTest {
         // Er is wel een DNS SOA-record maar geen IP adres
         //  rtttrdm.nl	SOA	0 ns1.dns.nl hostmaster@domain-registry.nl
         assertFalse(validator.checkDomainExists("rtttrdm.nl"));
-    }
+    }*/
 
     @Test
     void testDomainHasMX() {

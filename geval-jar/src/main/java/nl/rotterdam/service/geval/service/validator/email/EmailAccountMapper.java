@@ -11,12 +11,14 @@ import org.springframework.ldap.core.AttributesMapper;
 public class EmailAccountMapper implements AttributesMapper<EmailAccount> {
     private static final Logger log = LoggerFactory.getLogger(EmailAccountMapper.class);
 
+    // Dode code
     public static final String LDAP_ATTRIBUTE_MEDEWERKERNUMMER = "name";
     public static final String LDAP_ATTRIBUTE_EMAIL_ADRES = "mail";
     public static final String LDAP_ATTRIBUTE_DISTINGUISHED_NAME = "distinguishedName";
 
     @Override
     public EmailAccount mapFromAttributes(Attributes attributes) throws NamingException {
+        // Is het niet makkelijker om een een constructor te gebruiken ?
         EmailAccount emailAccount = new EmailAccount()
                 .emailAdres(getAttribute(attributes, LDAP_ATTRIBUTE_EMAIL_ADRES));
         return emailAccount;

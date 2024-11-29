@@ -33,6 +33,13 @@ public class Validators {
         return validatorMap.get(check.getType()).valideer(check.getGegeven(), tijdsbestek);
     }
 
+    // Als we toch een List gaan auto-wiren met validators dan kunnen we net zo goed dezelfde List
+    // op een functional wijze gebruiken. Dan heb je deze hele class niet nodig
+    /**
+     * validators.stream()
+     *           .filter(validator -> validator.getGegevenstype().equals(gegeven))
+     *           .enZoVoort();
+     */
     @Autowired
     public void setValidators(List<Validator> validators) {
         this.validatorList = validators;

@@ -5,6 +5,7 @@ public class InvalideInputException extends RuntimeException {
         super(message);
     }
 
+    // Dode code
     public InvalideInputException(String message, Exception root) {
         super(message, root);
     }

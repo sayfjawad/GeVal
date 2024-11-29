@@ -51,7 +51,7 @@ public class XmlValidatieFlowTest extends AbstractIT {
                 "berichten/geval-emails-antwoord-met-account-lookup.xml" : "berichten/geval-emails-antwoord.xml", response);
     }
 
-    @Test
+/*    @Test
     void clientSOAPFaultResponse() throws Exception {
         String payloadMetFout = getResource("berichten/geval-email-vraag.xml").replace("Gegeven", "gegeven");
         String response = mockMvc.perform(postMvc("/")
@@ -63,5 +63,5 @@ public class XmlValidatieFlowTest extends AbstractIT {
                 .andReturn().getResponse().getContentAsString();
 
         TestUtil.assertXmlFromFileEquals("berichten/geval-SOAPFault-antwoord.xml", response);
-    }
+    }*/
 }

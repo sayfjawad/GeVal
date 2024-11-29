@@ -31,6 +31,8 @@ public class IOUtils {
         }
         URL url = null;
 
+        // Als we twee of meerdere acties moeten doen om een URL te bepalen dan lievere in aparte
+        // classes, zo wordt het makkelijker om aan te passen, lezen/analyseren en te testen
         // Zoek eerst op het bestandssysteem
         try {
             File file = new File(resourceName);

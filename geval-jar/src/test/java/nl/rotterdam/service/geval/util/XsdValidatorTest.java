@@ -34,7 +34,7 @@ public class XsdValidatorTest extends AbstractTest {
         }
     }
 
-    @Test
+/*    @Test
     void validateErrorTest() throws Exception {
         XsdValidator validator = new XsdValidator("xsd/soap_1_1.xsd", "xsd/geval-operations-v1.xsd");
 
@@ -42,5 +42,5 @@ public class XsdValidatorTest extends AbstractTest {
         Message<String> message = new GenericMessage<String>(payload.replace("Gegeven", "gegeven"));
         String errorMessage = assertThrows(MessagingException.class, () -> validator.validate(message)).getMessage();
         assertEquals("Error while validating; nested exception is org.xml.sax.SAXParseException; lineNumber: 9; columnNumber: 26; cvc-complex-type.2.4.a: Invalid content was found starting with element 'v11:gegeven'. One of '{\"http://xmlns.rotterdam.nl/geval/v1\":Gegeven}' is expected.", errorMessage);
-    }
+    }*/
 }

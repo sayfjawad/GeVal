@@ -24,6 +24,7 @@ public class XsdValidator {
     private final Validator validator;
 
     public XsdValidator(final String... xsdResourcePath) throws SAXException {
+        // Deze assertion geeft geen bericht over wat er misgaat en het gaat om twee scenario's
         assert xsdResourcePath != null && xsdResourcePath.length > 0;
         final SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
         final Source[] sources = new Source[xsdResourcePath.length];

@@ -10,6 +10,7 @@ public class EmailAccount {
         return this.emailAdres;
     }
 
+    // waarom hier geen constructor gebruiken?
     public EmailAccount emailAdres(final String emailAdres) {
         this.emailAdres = emailAdres;
         return this;

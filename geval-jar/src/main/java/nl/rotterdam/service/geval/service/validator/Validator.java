@@ -13,6 +13,7 @@ public interface Validator {
      */
     ValidatieType getGegevenstype();
 
+    // Engels en Nederlands door elkaar
     default CheckResultaat valideer(final String waarde) {
         return valideer(waarde, Integer.MAX_VALUE);
     }

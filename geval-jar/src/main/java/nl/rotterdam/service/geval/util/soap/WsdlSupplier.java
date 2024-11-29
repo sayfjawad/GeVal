@@ -33,6 +33,7 @@ import org.w3c.dom.NodeList;
 public class WsdlSupplier {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(WsdlSupplier.class);
 
+    // Is dit thread-safe ?!
     private String mainWsdlFile = "";
 
     /**

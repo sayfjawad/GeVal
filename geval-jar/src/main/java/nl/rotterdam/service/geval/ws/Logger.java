@@ -20,8 +20,8 @@ public class Logger {
     private final static int DEFAULT_PAYLOAD_LIMIT = 1000;
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(RequestLogger.class);
 
-    @Value("${geval.log.requests}")
-    private boolean loggingOn;
+    //@Value("${geval.log.requests}")
+    private boolean loggingOn = true;
 
     @Value("${geval.log.payload-limit: 1000}")
     private int payloadLimit = DEFAULT_PAYLOAD_LIMIT;
