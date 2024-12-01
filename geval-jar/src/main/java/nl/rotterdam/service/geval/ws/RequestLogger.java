@@ -22,6 +22,11 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import nl.rotterdam.service.geval.service.RequestContext;
 import nl.rotterdam.service.geval.service.RequestContextService;
 
+// Klopt het dat de requests worden gelogged met alle inhoud van dien?
+// Is het ook zo dat dan alle gegevens (BSN/EMAIL) leesbaar worden via
+// de logs door Jan en Alleman?
+// Dit is overegins een beste impact op performance van de apllicatie
+// Gebruik een @Profile("een uit/aan-zet profiel") om dit optioneel te maken
 /**
  * Filter voor het bijhouden van een eigen request context en het loggen van
  * ontvangen requests en geretourneerde responses.
@@ -62,6 +67,7 @@ public class RequestLogger extends OncePerRequestFilter {
             String headerName = (String) headerNames.nextElement();
             headers.put(headerName, request.getHeader(headerName));
         }
+        // dode code
         final String requestBody = new String(request.getContentAsByteArray(), UTF_8);
 
         return requestContextService.createContext(requestUrl, request.getMethod(), headers, request);

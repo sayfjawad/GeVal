@@ -24,6 +24,10 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+// In Spring kan men gebruik maken van een GlobalException handler advisor!
+// Het komt niet duidelijk naar voren waarom de standaard mechanisme niet
+// is gebruikt!
 /**
  * Exception handler voor fouten in Spring Integration flows.
  */
@@ -31,12 +35,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ExceptionHandler {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ExceptionHandler.class);
 
+    // nog meer dode code
     @Autowired
     private Marshaller marshaller;
 
     @Autowired
     private ObjectMapper objectMapper;
 
+    // nog meer dode code
     public Message<String> handleException(ErrorMessage errorMessage) throws IOException {
         final String originalMessage = getOriginalMessage(errorMessage);
         MessagingException messagingException = (MessagingException) errorMessage.getPayload();
@@ -47,6 +53,7 @@ public class ExceptionHandler {
                 failedMessage = messagingException.getFailedMessage();
             }
         }
+        // nog meer dode code
         final String procesStap = getProcesStap(failedMessage);
 
         final Throwable cause = messagingException.getCause();
@@ -87,6 +94,8 @@ public class ExceptionHandler {
         }
     }
 
+    // If else watervallen verhogen onnodig de complexiteit
+    // en erb
     private Foutcodes foutCode(Throwable exceptie) {
         if (exceptie instanceof SAXParseException) {
             return Foutcodes.INVALIDE_INPUT_FOUT;

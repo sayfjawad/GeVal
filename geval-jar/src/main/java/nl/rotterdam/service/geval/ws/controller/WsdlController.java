@@ -18,12 +18,17 @@ public class WsdlController {
     @Value("${geval.external.url}")
     private String externalUrl;
 
+    // deze opzet maakt supplier niet mockbaar
+    // waardoor de testbaarheid verhinderd wordt
     private final WsdlSupplier supplier = new WsdlSupplier();
 
     public WsdlController() {
         supplier.setMainWsdlFile("wsdl/geval-service.wsdl");
     }
 
+    // request wordt niet gebruikt en is ook dode code
+    // het gebruiken van Ternary operators op deze wijze
+    // vermindert de leesbaarheid van de code
     @RequestMapping(path = "/wsdl", produces = "text/xml")
     public String supplyWsdlRoot(HttpServletRequest request, @RequestParam(value = "file", required = false) String file) throws Exception {
         return supplier.getWsdl(file == null || file.isEmpty() ? null : file, externalUrl);
