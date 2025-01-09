@@ -185,11 +185,11 @@ public class ValidatieIntegrationFlow extends AbstractIntegrationFlow {
         logger.log("geval.aantal.checks=" + vraag.getChecks().size());
 
         Future<GevalAntwoord> future = executorService.submit(() -> {
-            final long start = System.currentTimeMillis();
-            final GevalAntwoord antwoord = new GevalAntwoord();
+            final var start = System.currentTimeMillis();
+            final var antwoord = new GevalAntwoord();
             vraag.getChecks().forEach(check -> {
                 // Houdt bij hoeveel tijd we nog over hebben
-                final int tijdsbestek = timeoutMs - (int)(System.currentTimeMillis() - start);
+                final var tijdsbestek = timeoutMs - (int)(System.currentTimeMillis() - start);
                 antwoord.addChecksItem(validators.valideer(check, tijdsbestek));
             });
             return antwoord;
@@ -206,7 +206,7 @@ public class ValidatieIntegrationFlow extends AbstractIntegrationFlow {
         }
     }
 
-    private RequestMapping createMapping(HttpMethod[] method, String... path) {
+    private RequestMapping createMapping(final HttpMethod[] method, final String... path) {
         RequestMapping requestMapping = new RequestMapping();
         requestMapping.setMethods(method);
         requestMapping.setPathPatterns(path);
@@ -252,7 +252,7 @@ public class ValidatieIntegrationFlow extends AbstractIntegrationFlow {
 
     @Bean
     public HeaderMapper<HttpHeaders> headerMapper() {
-        DefaultHttpHeaderMapper mapper = new DefaultHttpHeaderMapper();
+        final var mapper = new DefaultHttpHeaderMapper();
         mapper.setInboundHeaderNames("Content-Type", "SOAPAction");
         mapper.setOutboundHeaderNames("Content-Type", "SOAPAction");
         return mapper;
@@ -260,7 +260,7 @@ public class ValidatieIntegrationFlow extends AbstractIntegrationFlow {
 
     @Bean
     public HttpRequestHandlingMessagingGateway gevalGateway() {
-        HttpRequestHandlingMessagingGateway handler = new HttpRequestHandlingMessagingGateway();
+        final var handler = new HttpRequestHandlingMessagingGateway();
         handler.setRequestMapping(createMapping(new HttpMethod[] { HttpMethod.POST }, "/"));
         handler.setHeaderMapper(headerMapper());
         handler.setRequestChannel(inputChannel());

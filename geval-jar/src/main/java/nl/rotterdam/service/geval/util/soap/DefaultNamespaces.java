@@ -13,21 +13,22 @@ public enum DefaultNamespaces {
     WSDL("wsdl", "http://schemas.xmlsoap.org/wsdl/"),
     XSI("xsi", "http://www.w3.org/2001/XMLSchema-instance"),
     XS("xs", "http://www.w3.org/2001/XMLSchema");
-
     private String prefix;
-
     private String namespace;
 
-    DefaultNamespaces(String prefix, String namespace) {
+    DefaultNamespaces(final String prefix, final String namespace) {
+
         this.prefix = prefix;
         this.namespace = namespace;
     }
 
     public String getPrefix() {
+
         return prefix;
     }
 
     public String getNamespace() {
+
         return namespace;
     }
 }

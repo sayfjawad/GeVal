@@ -33,6 +33,7 @@
         <commons-io.version>2.11.0</commons-io.version>
         <wiremock-jre8.version>2.32.0</wiremock-jre8.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <lombok.version>1.18.36</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -114,6 +115,12 @@
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-ui</artifactId>
                 <version>${springdoc-openapi-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

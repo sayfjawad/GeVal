@@ -13,35 +13,39 @@ import nl.rotterdam.service.geval.api.v1.xml.ValidatieCheckType;
  * Transformer voor JSON-gebaseerd model naar XML-gebaseerd model.
  */
 public class Json2XmlModelTransformer {
+
     public GevalVraag transform(final nl.rotterdam.service.geval.api.v1.json.GevalVraag jsonVraag) {
-        final GevalVraag xmlVraag = new GevalVraag();
+
+        final var xmlVraag = new GevalVraag();
         xmlVraag.setProcescode(jsonVraag.getProcescode());
         jsonVraag.getChecks().forEach(jsonCheck -> {
-                final ValidatieCheckType xmlCheck = new ValidatieCheckType();
-                xmlCheck.setType(gegevenstype(jsonCheck.getType()));
-                xmlCheck.setGegeven(jsonCheck.getGegeven());
-                xmlVraag.getCheck().add(xmlCheck);
-            }
-        );
+            final ValidatieCheckType xmlCheck = new ValidatieCheckType();
+            xmlCheck.setType(gegevenstype(jsonCheck.getType()));
+            xmlCheck.setGegeven(jsonCheck.getGegeven());
+            xmlVraag.getCheck().add(xmlCheck);
+        });
         return xmlVraag;
     }
 
-    public GevalAntwoord transform(final nl.rotterdam.service.geval.api.v1.json.GevalAntwoord jsonAntwoord) {
-        final GevalAntwoord xmlAntwoord = new GevalAntwoord();
+    public GevalAntwoord transform(
+            final nl.rotterdam.service.geval.api.v1.json.GevalAntwoord jsonAntwoord) {
+
+        final var xmlAntwoord = new GevalAntwoord();
         jsonAntwoord.getChecks().forEach(jsonCheckresult -> {
-                final ValidatieCheckResultType xmlCheckResult = new ValidatieCheckResultType();
-                xmlCheckResult.setType(gegevenstype(jsonCheckresult.getType()));
-                xmlCheckResult.setGegeven(jsonCheckresult.getGegeven());
-                xmlCheckResult.setValidatie(resultaat(jsonCheckresult.getValidatie()));
-                jsonCheckresult.getDetails().forEach(detail -> xmlCheckResult.getDetail().add(detail.toString()));
-                xmlCheckResult.setToelichting(jsonCheckresult.getToelichting());
-                xmlAntwoord.getCheckResult().add(xmlCheckResult);
-            }
-        );
+            final ValidatieCheckResultType xmlCheckResult = new ValidatieCheckResultType();
+            xmlCheckResult.setType(gegevenstype(jsonCheckresult.getType()));
+            xmlCheckResult.setGegeven(jsonCheckresult.getGegeven());
+            xmlCheckResult.setValidatie(resultaat(jsonCheckresult.getValidatie()));
+            jsonCheckresult.getDetails()
+                    .forEach(detail -> xmlCheckResult.getDetail().add(detail.toString()));
+            xmlCheckResult.setToelichting(jsonCheckresult.getToelichting());
+            xmlAntwoord.getCheckResult().add(xmlCheckResult);
+        });
         return xmlAntwoord;
     }
 
     private ResultaatType resultaat(Validatie resultaat) {
+
         switch (resultaat) {
             case GOED:
                 return ResultaatType.GOED;
@@ -55,6 +59,7 @@ public class Json2XmlModelTransformer {
     }
 
     private GegevensType gegevenstype(ValidatieType type) {
+
         switch (type) {
             case E_MAIL:
                 return GegevensType.E_MAIL;

@@ -12,7 +12,7 @@ public class RequestContextServiceImpl implements RequestContextService {
 
     @Override
     public RequestContext createContext(String url, String method, Map<String,String> headers, final ContentCachingRequestWrapper request) {
-        final RequestContextImpl context = new RequestContextImpl(url, method, headers, request);
+        final var context = new RequestContextImpl(url, method, headers, request);
         RequestContextHolder.register(context);
         return context;
     }
@@ -24,7 +24,7 @@ public class RequestContextServiceImpl implements RequestContextService {
 
     @Override
     public void registerResponse(int status, Map<String, String> headers, String responseBody) {
-        final RequestContextImpl context = (RequestContextImpl) RequestContextHolder.get();
+        final var context = (RequestContextImpl) RequestContextHolder.get();
         context.setResponseStatus(status);
         context.setResponseHeaders(headers);
         context.setResponseBody(responseBody);

@@ -14,11 +14,11 @@ import org.springframework.ldap.core.support.LdapContextSource;
 public class EmailConfiguration {
 
     @Bean
-    public LdapContextSource contextSource(
+    public LdapContextSource contextSource(final
             @Value("${ldap.endpoint}") String url,
             @Value("${ldap.userDn}") String userDn,
             @Value("${ldap.password}") String password) {
-        LdapContextSource contextSource = new LdapContextSource();
+        final var contextSource = new LdapContextSource();
         contextSource.setUrl(url);
         contextSource.setUserDn(userDn);
         contextSource.setPassword(password);
@@ -26,7 +26,7 @@ public class EmailConfiguration {
     }
 
     @Bean
-    public LdapTemplate ldapTemplate(LdapContextSource contextSource) {
+    public LdapTemplate ldapTemplate(final LdapContextSource contextSource) {
         final LdapTemplate ldapTemplate = new LdapTemplate(contextSource);
         ldapTemplate.setIgnorePartialResultException(true);
         return ldapTemplate;

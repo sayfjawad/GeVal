@@ -34,7 +34,7 @@ public class DefaultNamespaceContext implements NamespaceContext {
         }
     }
 
-    private void addPredefinedNamespace(String prefix, String uri) {
+    private void addPredefinedNamespace(final String prefix, final String uri) {
         predefinedPrefixes.add(prefix);
         addPrefix(prefix, uri);
     }
@@ -47,24 +47,24 @@ public class DefaultNamespaceContext implements NamespaceContext {
      * @param uri
      *            uri
      */
-    protected void addNamespace(String prefix, String uri) {
+    protected void addNamespace(final String prefix, final String uri) {
         checkNotPredefined(prefix);
         removePrefix(prefix);
         addPrefix(prefix, uri);
     }
 
-    private void checkNotPredefined(String prefix) {
+    private void checkNotPredefined(final String prefix) {
         if (predefinedPrefixes.contains(prefix)) {
             throw new IllegalArgumentException("cannot override predefined prefix '" + prefix + "'");
         }
     }
 
-    private void addPrefix(String prefix, String uri) {
+    private void addPrefix(final String prefix, final String uri) {
         uriByPrefix.put(prefix, uri);
         getPrefixesSet(uri).add(prefix);
     }
 
-    private void removePrefix(String prefix) {
+    private void removePrefix(final String prefix) {
 
         String uri = uriByPrefix.remove(prefix);
 
@@ -74,7 +74,7 @@ public class DefaultNamespaceContext implements NamespaceContext {
     }
 
     @Override
-    public String getNamespaceURI(String prefix) {
+    public String getNamespaceURI(final String prefix) {
 
         if (prefix == null) {
             throw new IllegalArgumentException("null namespace");
@@ -84,13 +84,13 @@ public class DefaultNamespaceContext implements NamespaceContext {
     }
 
     @Override
-    public String getPrefix(String namespaceURI) {
+    public String getPrefix(final String namespaceURI) {
 
         if (namespaceURI == null) {
             throw new IllegalArgumentException("null namespace");
         }
 
-        Set<String> prefixes = prefixesByUri.get(namespaceURI);
+        final var prefixes = prefixesByUri.get(namespaceURI);
 
         if (prefixes == null || prefixes.isEmpty()) {
             return null;
@@ -100,7 +100,7 @@ public class DefaultNamespaceContext implements NamespaceContext {
     }
 
     @Override
-    public Iterator<String> getPrefixes(String namespaceURI) {
+    public Iterator<String> getPrefixes(final String namespaceURI) {
 
         if (namespaceURI == null) {
             throw new IllegalArgumentException("null namespace");
@@ -109,7 +109,7 @@ public class DefaultNamespaceContext implements NamespaceContext {
         return Collections.unmodifiableSet(getPrefixesSet(namespaceURI)).iterator();
     }
 
-    private Set<String> getPrefixesSet(String uri) {
+    private Set<String> getPrefixesSet(final String uri) {
         return prefixesByUri.computeIfAbsent(uri, k -> new HashSet<>());
     }
 }

@@ -6,13 +6,15 @@ import nl.rotterdam.service.geval.api.v1.json.ValidatieType;
 import nl.rotterdam.service.geval.api.v1.xml.GegevensType;
 
 /**
- * Transformer voor XML-gebaseerd model naar JSON-gebaseerd model.
- * Alleen binnenkomende gegevensstructuren worden getransformeerd omdat intern
- * het JSON-gebaseerde model wordt gebruikt voor de verwerking.
+ * Transformer voor XML-gebaseerd model naar JSON-gebaseerd model. Alleen binnenkomende
+ * gegevensstructuren worden getransformeerd omdat intern het JSON-gebaseerde model wordt gebruikt
+ * voor de verwerking.
  */
 public class Xml2JsonModelTransformer {
+
     public GevalVraag transform(final nl.rotterdam.service.geval.api.v1.xml.GevalVraag xmlVraag) {
-        final GevalVraag jsonVraag = new GevalVraag();
+
+        final var jsonVraag = new GevalVraag();
         jsonVraag.setProcescode(xmlVraag.getProcescode());
         xmlVraag.getCheck().forEach(xmlCheck -> {
             jsonVraag.addChecksItem(new Check()
@@ -23,6 +25,7 @@ public class Xml2JsonModelTransformer {
     }
 
     private ValidatieType type(GegevensType type) {
+
         switch (type) {
             case E_MAIL:
                 return ValidatieType.E_MAIL;
