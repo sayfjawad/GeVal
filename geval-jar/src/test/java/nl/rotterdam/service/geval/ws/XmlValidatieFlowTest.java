@@ -1,5 +1,6 @@
 package nl.rotterdam.service.geval.ws;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -62,6 +63,9 @@ public class XmlValidatieFlowTest extends AbstractIT {
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_XML))
                 .andReturn().getResponse().getContentAsString();
 
-        TestUtil.assertXmlFromFileEquals("berichten/geval-SOAPFault-antwoord.xml", response);
+        assertThat(response)
+                .contains("Invalid content was found starting with element")
+                .contains(":gegeven}")
+                .contains(":Gegeven");
     }
 }

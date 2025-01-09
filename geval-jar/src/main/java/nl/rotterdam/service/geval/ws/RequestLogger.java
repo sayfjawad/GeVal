@@ -39,10 +39,10 @@ public class RequestLogger extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         requestContextService.reset();
 
-        final ContentCachingRequestWrapper requestWrapper = new ContentCachingRequestWrapper(request);
-        final ContentCachingResponseWrapper responseWrapper = new ContentCachingResponseWrapper(response);
+        final var requestWrapper = new ContentCachingRequestWrapper(request);
+        final var responseWrapper = new ContentCachingResponseWrapper(response);
 
-        final RequestContext context = registerRequest(requestWrapper);
+        final var context = registerRequest(requestWrapper);
         filterChain.doFilter(requestWrapper, responseWrapper);
 
         registerResponse(responseWrapper);
@@ -54,21 +54,20 @@ public class RequestLogger extends OncePerRequestFilter {
         }
     }
 
-    private RequestContext registerRequest(final ContentCachingRequestWrapper request) throws IOException {
-        final String requestUrl = request.getRequestURL().toString();
-        final Map<String, String> headers = new HashMap<>();
-        final Enumeration headerNames = request.getHeaderNames();
+    private RequestContext registerRequest(final ContentCachingRequestWrapper request) {
+        final var requestUrl = request.getRequestURL().toString();
+        final var headers = new HashMap<String, String>();
+        final var headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
-            String headerName = (String) headerNames.nextElement();
+            final var headerName = headerNames.nextElement();
             headers.put(headerName, request.getHeader(headerName));
         }
-        final String requestBody = new String(request.getContentAsByteArray(), UTF_8);
 
         return requestContextService.createContext(requestUrl, request.getMethod(), headers, request);
     }
 
     private void registerResponse(final ContentCachingResponseWrapper response) throws IOException {
-        final Map<String, String> headers = new HashMap<>();
+        final var headers = new HashMap<String,String>();
         for (String headerName : response.getHeaderNames()) {
             headers.put(headerName, response.getHeader(headerName));
         }

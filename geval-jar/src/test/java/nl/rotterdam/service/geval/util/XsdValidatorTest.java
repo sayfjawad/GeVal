@@ -1,5 +1,6 @@
 package nl.rotterdam.service.geval.util;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -41,6 +42,10 @@ public class XsdValidatorTest extends AbstractTest {
         final String payload = getResource("berichten/geval-email-vraag.xml");
         Message<String> message = new GenericMessage<String>(payload.replace("Gegeven", "gegeven"));
         String errorMessage = assertThrows(MessagingException.class, () -> validator.validate(message)).getMessage();
-        assertEquals("Error while validating; nested exception is org.xml.sax.SAXParseException; lineNumber: 9; columnNumber: 26; cvc-complex-type.2.4.a: Invalid content was found starting with element 'v11:gegeven'. One of '{\"http://xmlns.rotterdam.nl/geval/v1\":Gegeven}' is expected.", errorMessage);
+        assertThat(errorMessage)
+                .contains("Error while validating; nested exception is org.xml.sax.SAXParseException; lineNumber: 9;")
+                .contains("Invalid content was found starting with element")
+                .contains(":gegeven}")
+                .contains(":Gegeven");
     }
 }

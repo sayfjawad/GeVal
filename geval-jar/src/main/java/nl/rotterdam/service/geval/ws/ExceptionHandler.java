@@ -32,13 +32,9 @@ public class ExceptionHandler {
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ExceptionHandler.class);
 
     @Autowired
-    private Marshaller marshaller;
-
-    @Autowired
     private ObjectMapper objectMapper;
 
     public Message<String> handleException(ErrorMessage errorMessage) throws IOException {
-        final String originalMessage = getOriginalMessage(errorMessage);
         MessagingException messagingException = (MessagingException) errorMessage.getPayload();
         Message<?> failedMessage = messagingException.getFailedMessage();
         while (messagingException.getCause() instanceof MessagingException) {

@@ -18,9 +18,21 @@
     </modules>
 
     <properties>
-        <java.version>8</java.version>
-        <security.connectors.version>1.8</security.connectors.version>
+        <java.version>17</java.version>
         <spring.boot.version>2.6.6</spring.boot.version>
+        <springdoc-openapi-ui.version>1.6.7</springdoc-openapi-ui.version>
+        <jackson-databind-nullable.version>0.2.1</jackson-databind-nullable.version>
+        <httpclient.version>4.5.13</httpclient.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <javax.jms-api.version>2.0.1</javax.jms-api.version>
+        <jakarta.xml.bind-api.version>2.3.3</jakarta.xml.bind-api.version>
+        <swagger-annotations.version>1.5.22</swagger-annotations.version>
+        <springfox-core.version>3.0.0</springfox-core.version>
+        <dnsjava.version>3.5.1</dnsjava.version>
+        <commons-validator.version>1.7</commons-validator.version>
+        <commons-io.version>2.11.0</commons-io.version>
+        <wiremock-jre8.version>2.32.0</wiremock-jre8.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -28,10 +40,10 @@
             <dependency>
                 <groupId>com.github.tomakehurst</groupId>
                 <artifactId>wiremock-jre8</artifactId>
-                <version>2.32.0</version>
+                <version>${wiremock-jre8.version}</version>
                 <scope>test</scope>
             </dependency>
-            <?SORTPOM IGNORE?>
+
             <dependency>
                 <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
@@ -40,69 +52,68 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <?SORTPOM RESUME?>
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.11.0</version>
+                <version>${commons-io.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-validator</groupId>
                 <artifactId>commons-validator</artifactId>
-                <version>1.7</version>
+                <version>${commons-validator.version}</version>
             </dependency>
             <dependency>
                 <groupId>dnsjava</groupId>
                 <artifactId>dnsjava</artifactId>
-                <version>3.5.1</version>
+                <version>${dnsjava.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-core</artifactId>
-                <version>3.0.0</version>
+                <version>${springfox-core.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>1.5.22</version>
+                <version>${swagger-annotations.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-ri</artifactId>
-                <version>2.3.3</version>
+                <version>${jakarta.xml.bind-api.version}</version>
                 <type>zip</type>
             </dependency>
             <dependency>
                 <groupId>jakarta.xml.bind</groupId>
                 <artifactId>jakarta.xml.bind-api</artifactId>
-                <version>2.3.3</version>
+                <version>${jakarta.xml.bind-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.jms</groupId>
                 <artifactId>javax.jms-api</artifactId>
-                <version>2.0.1</version>
+                <version>${javax.jms-api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <version>${javax.servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.13</version>
+                <version>${httpclient.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.openapitools</groupId>
                 <artifactId>jackson-databind-nullable</artifactId>
-                <version>0.2.1</version>
+                <version>${jackson-databind-nullable.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-ui</artifactId>
-                <version>1.6.7</version>
+                <version>${springdoc-openapi-ui.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -112,10 +123,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>17</source>
+                    <target>17</target>
                     <fork>false</fork>
                 </configuration>
             </plugin>

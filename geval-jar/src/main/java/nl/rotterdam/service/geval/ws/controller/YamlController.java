@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class YamlController {
     @RequestMapping(value = "/yaml", produces = { "application/x-yaml"})
     public String getYaml() throws IOException {
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream("api/openapi.yaml");
+        final var in = this.getClass().getClassLoader().getResourceAsStream("api/openapi.yaml");
         return IOUtils.toString(in, "UTF-8");
     }
 }

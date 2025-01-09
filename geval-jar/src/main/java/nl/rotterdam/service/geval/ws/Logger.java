@@ -74,7 +74,7 @@ public class Logger {
     }
 
     private Map<String,String> clean(final Map<String,String> headers) {
-        Map<String, String> cleaned = new HashMap<>();
+        final var cleaned = new HashMap<String, String>();
         headers.forEach((k, v) -> cleaned.put(k, "Authorization".equalsIgnoreCase(k) ? "...." : v));
         return cleaned;
     }
